@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Form</title>
+    <style>
+        /* Apply general styles to form elements */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 400px; /* Set the width of the form container */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Adjust the button style */
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Change this to your desired primary color */
+        }
+
+        /* Adjust the file input style */
+        input[type="file"] {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form class="col-6 mx-auto  shadow-lg" , method="post" , enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1 class="text-center">Add Recipe</h1> 
+            <div class="form-group">
+                <label  class="form-label">Recipe name</label>
+                <input name="name" required ="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label  class="form-label">Ingredients</label>
+                <input name="ingredients" required type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Time required</label>
+                <input  name="time_required" required type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label >Description</label>
+                <input name="description" required type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input  name="image" type="file" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Receipe</button>
+        </form>
+    </div>
+</body>
+</html>
